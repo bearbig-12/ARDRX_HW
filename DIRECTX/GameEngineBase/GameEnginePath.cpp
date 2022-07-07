@@ -1,3 +1,4 @@
+#include "PreCompile.h"
 #include "GameEnginePath.h"
 
 GameEnginePath::GameEnginePath() 
@@ -32,6 +33,12 @@ std::string GameEnginePath::GetExtension() const
 
 std::string GameEnginePath::GetFileName()  const
 {
+	return Path_.filename().string();
+}
+
+/*static*/ std::string GameEnginePath::GetFileName(const std::string& _Path)
+{
+	std::filesystem::path Path_ = _Path;
 	return Path_.filename().string();
 }
 
